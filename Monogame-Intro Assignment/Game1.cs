@@ -8,7 +8,10 @@ namespace Monogame_Intro_Assignment
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private Texture2D roseTexture;
+        private Texture2D bunnyTexture;
+        private Texture2D grassTexture;
+        private Texture2D sunTexture;
+        private Texture2D cloudTexture;
         private Rectangle window;
 
         public Game1()
@@ -39,7 +42,10 @@ namespace Monogame_Intro_Assignment
 
             // TODO: use this.Content to load your game content here
 
-               roseTexture = Content.Load<Texture2D>("rose");
+            bunnyTexture = Content.Load<Texture2D>("bunny");
+            grassTexture = Content.Load<Texture2D>("grass");
+            sunTexture = Content.Load<Texture2D>("sun");
+            cloudTexture = Content.Load<Texture2D>("cloud");
         }
 
         protected override void Update(GameTime gameTime)
@@ -60,12 +66,16 @@ namespace Monogame_Intro_Assignment
 
             _spriteBatch.Begin();
 
-            _spriteBatch.Draw(roseTexture, new Vector2(10, 10), Color.White);
+            _spriteBatch.Draw(bunnyTexture, new Vector2 (350,350), Color.White);
+            _spriteBatch.Draw(grassTexture, new Vector2 (0, 160) , Color.White);
+            _spriteBatch.Draw(sunTexture, new Vector2 (600,0) , Color.White);
+            _spriteBatch.Draw(cloudTexture, new Vector2 (0,0), Color.White);
 
 
             _spriteBatch.End();
 
             base.Draw(gameTime);
+
         }
     }
 }
