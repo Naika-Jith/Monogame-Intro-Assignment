@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace Monogame_Intro_Assignment
 {
@@ -12,7 +13,11 @@ namespace Monogame_Intro_Assignment
         private Texture2D grassTexture;
         private Texture2D sunTexture;
         private Texture2D cloudTexture;
+        private Texture2D doveTexture;
         private Rectangle window;
+
+        Random random = new Random();
+        Vector2 dovePosition;
 
         public Game1()
         {
@@ -46,6 +51,9 @@ namespace Monogame_Intro_Assignment
             grassTexture = Content.Load<Texture2D>("grass");
             sunTexture = Content.Load<Texture2D>("sun");
             cloudTexture = Content.Load<Texture2D>("cloud");
+            doveTexture = Content.Load<Texture2D>("dove");
+            dovePosition = new Vector2(random.Next(0, 800), random.Next(0, 500));
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -70,6 +78,7 @@ namespace Monogame_Intro_Assignment
             _spriteBatch.Draw(grassTexture, new Vector2 (0, 160) , Color.White);
             _spriteBatch.Draw(sunTexture, new Vector2 (600,0) , Color.White);
             _spriteBatch.Draw(cloudTexture, new Vector2 (0,0), Color.White);
+            _spriteBatch.Draw(doveTexture, dovePosition, Color.White);
 
 
             _spriteBatch.End();
